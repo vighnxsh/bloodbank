@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 
-export async function GET(
-  request: NextRequest, 
+export const GET = async (
+  request: NextRequest,
   { params }: { params: { id: string } }
-) {
+) => {
   try {
     const id = parseInt(params.id);
     
@@ -39,10 +39,10 @@ export async function GET(
   }
 }
 
-export async function PATCH(
+export const PATCH = async (
   request: NextRequest,
   { params }: { params: { id: string } }
-) {
+) => {
   try {
     const id = parseInt(params.id);
     
@@ -75,10 +75,10 @@ export async function PATCH(
   }
 }
 
-export async function DELETE(
+export const DELETE = async (
   request: NextRequest,
   { params }: { params: { id: string } }
-) {
+) => {
   try {
     const id = parseInt(params.id);
     
@@ -104,4 +104,4 @@ export async function DELETE(
       { status: 500 }
     );
   }
-} 
+}
