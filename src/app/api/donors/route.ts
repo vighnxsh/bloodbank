@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const donors = await db.donor.findMany({
       orderBy: {
@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     
-    // Convert lastDonated to a Date object if it's provided
+    // Convert lastDonated to a Date object if provided
     if (body.lastDonated) {
       body.lastDonated = new Date(body.lastDonated);
     }

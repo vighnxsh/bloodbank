@@ -55,7 +55,7 @@ export async function PATCH(
     
     const body = await request.json();
     
-    // Convert lastDonated to a Date object if it's provided
+    // Convert lastDonated to a Date object if provided
     if (body.lastDonated) {
       body.lastDonated = new Date(body.lastDonated);
     }
